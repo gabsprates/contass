@@ -1,17 +1,61 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+
+type HelloProps = {
+  name: string;
+  lastName?: string;
+};
+
+// function component
+const Hello = ({ name, lastName = "Consultoria" }: HelloProps) => {
+  useEffect(() => {
+    window.addEventListener("scroll", console.log);
+
+    return () => {
+      window.removeEventListener("scroll", console.log);
+    };
+  });
+
+  return (
+    <h1>
+      Olá, {name}
+      {lastName}!
+    </h1>
+  );
+};
+
+// class component
+class ClassHello extends React.Component<HelloProps> {
+  constructor(props: HelloProps) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", console.log);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", console.log);
+  }
+
+  render() {
+    return (
+      <h1>
+        Olá, {this.props.name}
+        {this.props.lastName}!
+      </h1>
+    );
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <>
+    <Hello name="Contass" lastName="Consultoria" />
+    <Hello name="Igor" />
+    <Hello name="Os menino" />
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    <ClassHello name="Rodrigo" />
+  </>,
+  document.getElementById("root")
+);
