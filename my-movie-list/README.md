@@ -1,5 +1,8 @@
 # Curso de React
 
+Apresentação:
+https://docs.google.com/presentation/d/1j1GCZoAXSFK4esAgfZ-X3SU68tIxFERftLEQccJjgZ4/edit
+
 ## Objetivo
 
 Nosso objeto é contruir uma Single-Page Application para salvar nossos duas listas de filmes:
