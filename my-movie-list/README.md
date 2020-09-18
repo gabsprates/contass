@@ -1,6 +1,6 @@
-## Curso de React
+# Curso de React
 
-### Objetivo
+## Objetivo
 
 Nosso objeto é contruir uma Single-Page Application para salvar nossos duas listas de filmes:
 
@@ -9,41 +9,40 @@ Nosso objeto é contruir uma Single-Page Application para salvar nossos duas lis
 
 Essas listas serão preenchidas a partir de uma busca pelos títulos dos filmes na [OMDb API](http://www.omdbapi.com/).
 
-### Requsitos Básicos
+## Requsitos Básicos
 
 Legendas:
 
 - `LFA`: Lista de Filmes que já Assisti
 - `LFQV`: Lista de Filmes que Quer Ver
 
-#### Página inicial
+### Página inicial
 1. Exibir formulário de busca;
 1. Navbar com botões para exibição de uma das listas;
   - Deve exibir por padrão a `LFA`;
 
-#### Busca:
+### Busca:
 1. Fazer busca por título de filme na API;
 1. Exibir 10 resultados da busca:
-  - Cada item (card de filme) deve ter dois botões de ações:
-    1. Adicionar (remover se já estiver) em `LFA`;
-    1. Adicionar (remover se já estiver) em `LFA`;
+    - Cada item (card de filme) deve ter dois botões de ações:
+        1. Adicionar (remover se já estiver) em `LFA`;
+        1. Adicionar (remover se já estiver) em `LFA`;
 1. Tratamento de estado para busca sem resultados;
 1. Limpar a busca;
 
-#### Listas
+### Listas
 1. Tratamento de estados de listas vazias;
 1. Os itens (card de filme) devem ter um botão para a remoção do item da respectiva lista;
 1. Os itens (card de filme) de `LFQV` devem ter um botão para adicionar à `LFA`
-  - Esta ação deve remover o item de `LFQV`
+    - Esta ação deve remover o item de `LFQV`
 
-#### Card de filme
+### Card de filme
 1. Deve conter:
-  - Pôster
-  - Título
-  - Ano de lançamento
-
-  
-### Requisitos Extras
+    - Pôster
+    - Título
+    - Ano de lançamento
+ 
+## Requisitos Extras
 
 - Escrita de testes;
 - Não deixar a mesma requisição de busca ser feita mais de uma vez (estratégia de cache);
@@ -52,7 +51,7 @@ Legendas:
 
 ---
 
-### Setup
+## Setup
 
 - Criação de chave de API para uso pessoal
 
