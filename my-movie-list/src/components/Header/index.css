@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  text-align: center;
+  border-bottom: 2px dashed #000;
+  padding-bottom: 10px;
+  justify-content: center;
+}
+
+.logo {
+  margin-right: 10px;
+}
