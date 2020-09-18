@@ -1,44 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Curso de React
 
-## Available Scripts
+### Objetivo
 
-In the project directory, you can run:
+Nosso objeto é contruir uma Single-Page Application para salvar nossos duas listas de filmes:
 
-### `yarn start`
+- Filmes que já assisti
+- Filmes que quero ver
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Essas listas serão preenchidas a partir de uma busca pelos títulos dos filmes na [OMDb API](http://www.omdbapi.com/).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Requsitos Básicos
 
-### `yarn test`
+Legendas:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `LFA`: Lista de Filmes que já Assisti
+- `LFQV`: Lista de Filmes que Quer Ver
 
-### `yarn build`
+#### Página inicial
+1. Exibir formulário de busca;
+1. Navbar com botões para exibição de uma das listas;
+  - Deve exibir por padrão a `LFA`;
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Busca:
+1. Fazer busca por título de filme na API;
+1. Exibir 10 resultados da busca:
+  - Cada item (card de filme) deve ter dois botões de ações:
+    1. Adicionar (remover se já estiver) em `LFA`;
+    1. Adicionar (remover se já estiver) em `LFA`;
+1. Tratamento de estado para busca sem resultados;
+1. Limpar a busca;
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Listas
+1. Tratamento de estados de listas vazias;
+1. Os itens (card de filme) devem ter um botão para a remoção do item da respectiva lista;
+1. Os itens (card de filme) de `LFQV` devem ter um botão para adicionar à `LFA`
+  - Esta ação deve remover o item de `LFQV`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Card de filme
+1. Deve conter:
+  - Pôster
+  - Título
+  - Ano de lançamento
 
-### `yarn eject`
+  
+### Requisitos Extras
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Escrita de testes;
+- Não deixar a mesma requisição de busca ser feita mais de uma vez (estratégia de cache);
+- Layout responsivo;
+- Busca por filme dentro de uma lista
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Setup
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Criação de chave de API para uso pessoal
 
-## Learn More
+http://www.omdbapi.com/apikey.aspx
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Extensões para editor/IDE:
+  - Prettier
+  - ESLint
+  
+- Instalação de pacotes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+yarn install
+```
