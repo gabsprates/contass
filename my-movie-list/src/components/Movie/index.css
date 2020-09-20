@@ -1,0 +1,36 @@
+.movie {
+  border: 1px solid #d6d6d6;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.movie-poster {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  display: block;
+}
+.movie-poster img {
+  margin: 0 auto;
+  display: block;
+}
+.movie-year {
+  top: 15px;
+  left: 15px;
+  color: #fff;
+  width: 100%;
+  padding: 2px 3px 3px;
+  display: block;
+  position: absolute;
+  transform: rotate(-45deg) translate(-50%);
+  background: #940606;
+  transform-origin: 0 0;
+}
+
+.movie-title {
+  color: #fff;
+  padding: 5px;
+  background: #212121;
+  text-align: center;
+}

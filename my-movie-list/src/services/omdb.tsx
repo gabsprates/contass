@@ -4,7 +4,7 @@ const ENDPOINT =
 export const searchMovies = async (search: string) => {
   const response = await fetch(`${ENDPOINT}&s=${search}`);
 
-  const data = await response.json();
+  const data = (await response.json()) as { Search: Movie[] };
 
-  return data;
+  return data.Search;
 };

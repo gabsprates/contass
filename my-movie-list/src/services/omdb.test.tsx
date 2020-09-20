@@ -2,15 +2,17 @@ import { searchMovies } from "./omdb";
 
 describe("Service: searchMovies", () => {
   const spy = jest.spyOn(window, "fetch").mockResolvedValue({
-    json: async () => [],
+    json: async () => ({
+      Search: [],
+    }),
   } as any);
 
   it("should return um array", async () => {
-    expect(await searchMovies()).toEqual([]);
+    expect(await searchMovies("")).toEqual([]);
   });
 
   it("should call fetch", async () => {
-    await searchMovies();
+    await searchMovies("");
     expect(spy).toBeCalled();
   });
 });

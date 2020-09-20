@@ -1,0 +1,15 @@
+.searchTerm {
+  margin: 15px 0;
+}
+
+.searchTerm-clear {
+  color: #a48632;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 15px;
+}
+
+.searchTerm-clear:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

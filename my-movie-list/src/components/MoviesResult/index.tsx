@@ -1,16 +1,36 @@
 import React from "react";
+import "./index.css";
+import { Movie } from "../Movie";
+import { MovieList, MovieListItem } from "../MovieList";
 
-type MoviesResultProps = Pick<AppState, "search" | "movies">;
+type MoviesResultProps = { clearSerach: () => void } & Pick<
+  AppState,
+  "search" | "movies"
+>;
 
-export const MoviesResult = ({ search, movies }: MoviesResultProps) => {
+export const MoviesResult = ({
+  search,
+  movies,
+  clearSerach,
+}: MoviesResultProps) => {
   return (
     <>
-      <h2>"{search}"</h2>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.imdbID}>{movie.Title}</li>
-        ))}
-      </ul>
+      <h2 className="searchTerm">
+        "{search}"{" "}
+        <span className="searchTerm-clear" onClick={clearSerach}>
+          [ limpar ]
+        </span>
+      </h2>
+
+      <MovieList>
+        {movies.map((movie) => {
+          return (
+            <MovieListItem key={movie.imdbID}>
+              <Movie movie={movie} />
+            </MovieListItem>
+          );
+        })}
+      </MovieList>
     </>
   );
 };

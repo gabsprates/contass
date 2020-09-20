@@ -1,0 +1,20 @@
+.movieList {
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movieList-item {
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .movieList {
+    justify-content: space-between;
+  }
+  .movieList-item {
+    width: calc(50% - 7px);
+  }
+}

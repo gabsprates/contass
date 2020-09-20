@@ -18,7 +18,7 @@ export const SearchForm = ({
     if (!search) return;
 
     searchMovies(search)
-      .then((moviesFromAPI) => setMovies(moviesFromAPI.Search))
+      .then((moviesFromAPI) => setMovies(moviesFromAPI))
       .catch(console.error);
   };
 
