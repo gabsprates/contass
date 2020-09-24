@@ -2,9 +2,29 @@
   width: 100%;
   margin: 0 auto;
   padding: 20px 15px 0;
-  max-width: 1000px;
+  max-width: 1024px;
 }
 
+.button {
+  border: 1px solid #d6d6d6;
+  padding: 10px;
+  background: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  background: #fff;
+}
+.button.on {
+  color: #fff;
+  background: #212121;
+}
+.button.on:hover {
+  color: #fff;
+  background: #666;
+}
+
+/* form */
 .form {
   padding: 20px;
   display: flex;
@@ -12,7 +32,29 @@
 }
 
 .form input {
-  padding: 5px;
-  border: 1px solid #000;
-  border-radius: 3px;
+  border: 1px solid #d6d6d6;
+  padding: 5px 10px;
+  border-right: 0;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form .button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.navbar .button {
+  border-radius: 0;
+}
+.navbar .button + .button {
+  border-left: 0;
+}
+.navbar .button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.navbar .button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

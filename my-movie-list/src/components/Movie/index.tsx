@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ListsContext } from "../../context/listContext";
 import "./index.css";
 
 type MovieProps = {
@@ -20,8 +21,8 @@ export const Movie = ({ movie, actions }: MovieProps) => (
       <img
         src={getPoster(movie.Poster, movie.Title)}
         alt={movie.Title}
-        width="300"
-        height="457"
+        width="150"
+        height="228"
       />
       <span className="movie-year">{movie.Year}</span>
     </figure>
@@ -30,6 +31,44 @@ export const Movie = ({ movie, actions }: MovieProps) => (
       <strong>{movie.Title}</strong>
     </p>
 
-    {actions && <div>teste</div>}
+    {actions && <div className="movie-actions">{actions}</div>}
   </div>
 );
+
+export const ToggleWatched = ({ movie }: { movie: Movie }) => {
+  const { isWatched, addToWatched, removeFromWatched } = useContext(
+    ListsContext
+  );
+
+  return isWatched(movie.imdbID) ? (
+    <button
+      className="button on"
+      onClick={() => removeFromWatched(movie.imdbID)}
+    >
+      remover dos já assistidos
+    </button>
+  ) : (
+    <button className="button" onClick={() => addToWatched(movie)}>
+      já assisti
+    </button>
+  );
+};
+
+export const ToggleWantWatch = ({ movie }: { movie: Movie }) => {
+  const { isWantWatch, addToWantWatch, removeFromWantWatch } = useContext(
+    ListsContext
+  );
+
+  return isWantWatch(movie.imdbID) ? (
+    <button
+      className="button on"
+      onClick={() => removeFromWantWatch(movie.imdbID)}
+    >
+      remover dos que quero ver
+    </button>
+  ) : (
+    <button className="button" onClick={() => addToWantWatch(movie)}>
+      quero ver
+    </button>
+  );
+};

@@ -19,4 +19,11 @@ describe("Component: Movie", () => {
     expect(getByText(movie.Title)).toBeInTheDocument();
     expect(getByAltText(movie.Title)).toBeInTheDocument();
   });
+
+  it("should render actions", async () => {
+    const { getByText } = render(
+      <Movie movie={movie} actions={<p>actions</p>} />
+    );
+    expect(getByText("actions")).toBeInTheDocument();
+  });
 });

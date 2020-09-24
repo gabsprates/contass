@@ -1,24 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { searchMovies } from "../../services/omdb";
 
 type SearchFormProps = {
-  search: AppState["search"];
-  setSearch: (search: string) => void;
   setMovies: (movies: Movie[]) => void;
+  setSearchTerm: (search: string) => void;
 };
 
-export const SearchForm = ({
-  search,
-  setMovies,
-  setSearch,
-}: SearchFormProps) => {
+export const SearchForm = ({ setMovies, setSearchTerm }: SearchFormProps) => {
+  const [search, setSearch] = useState("");
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!search) return;
 
     searchMovies(search)
-      .then((moviesFromAPI) => setMovies(moviesFromAPI))
+      .then((moviesFromAPI) => {
+        setSearchTerm(search);
+        setMovies(moviesFromAPI);
+      })
       .catch(console.error);
   };
 
@@ -30,6 +30,7 @@ export const SearchForm = ({
     <form className="form" onSubmit={handleSubmit}>
       <input
         type="text"
+        value={search}
         onChange={handleChange}
         placeholder="pesquise filmes aqui"
       />

@@ -1,20 +1,30 @@
 .movieList {
   margin: 30px 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
 }
 
 .movieList-item {
   width: 100%;
   display: block;
-  margin-bottom: 15px;
+}
+
+@media (min-width: 480px) {
+  .movieList {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 768px) {
   .movieList {
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  .movieList-item {
-    width: calc(50% - 7px);
+}
+
+@media (min-width: 960px) {
+  .movieList {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

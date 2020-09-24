@@ -34,3 +34,17 @@
   background: #212121;
   text-align: center;
 }
+
+.movie-actions {
+  display: flex;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.movie-actions .button {
+  width: 100%;
+}
+
+.movie-actions .button + .button:not(:first-of-type) {
+  margin-top: 15px;
+}

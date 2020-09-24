@@ -1,12 +1,11 @@
 import React from "react";
 import "./index.css";
-import { Movie } from "../Movie";
+import { Movie, ToggleWatched, ToggleWantWatch } from "../Movie";
 import { MovieList, MovieListItem } from "../MovieList";
 
-type MoviesResultProps = { clearSerach: () => void } & Pick<
-  AppState,
-  "search" | "movies"
->;
+type MoviesResultProps = {
+  clearSerach: () => void;
+} & Pick<AppState, "search" | "movies">;
 
 export const MoviesResult = ({
   search,
@@ -16,7 +15,7 @@ export const MoviesResult = ({
   return (
     <>
       <h2 className="searchTerm">
-        "{search}"{" "}
+        "{search}"
         <span className="searchTerm-clear" onClick={clearSerach}>
           [ limpar ]
         </span>
@@ -26,7 +25,15 @@ export const MoviesResult = ({
         {movies.map((movie) => {
           return (
             <MovieListItem key={movie.imdbID}>
-              <Movie movie={movie} />
+              <Movie
+                movie={movie}
+                actions={
+                  <>
+                    <ToggleWatched movie={movie} />
+                    <ToggleWantWatch movie={movie} />
+                  </>
+                }
+              />
             </MovieListItem>
           );
         })}
