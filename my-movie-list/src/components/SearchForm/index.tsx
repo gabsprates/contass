@@ -1,25 +1,38 @@
 import React from "react";
-import { searchMovies } from "../../services/omdb";
+import { searchMovies, searchMoviesById } from "../../services/omdb";
+import "./index.css";
 
 type SearchFormProps = {
   search: AppState["search"];
   setSearch: (search: string) => void;
-  setMovies: (movies: Movie[]) => void;
+  setSearching: (searching: boolean) => void;
+  setSearchErro: (erro: boolean) => void;
+  setMoviesResultSearch: (movies: Movie[]) => void;
 };
 
-export const SearchForm = ({
-  search,
-  setMovies,
-  setSearch,
-}: SearchFormProps) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export const SearchForm = ({ search, setMoviesResultSearch, setSearch, setSearching, setSearchErro }: SearchFormProps) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!search) return;
+    setMoviesResultSearch([]);
+    setSearching(true);
+    let moviesFromAPI = await searchMovies(search);
 
-    searchMovies(search)
-      .then((moviesFromAPI) => setMovies(moviesFromAPI.Search))
-      .catch(console.error);
+    if (moviesFromAPI.Error) {
+      setSearchErro(true);
+      setSearching(false);
+      return;
+    }
+    setSearchErro(false);
+    let movies: Movie[] = [];
+
+    Promise.all(
+      moviesFromAPI.Search.map(async (movie: Movie) => movies.push(await searchMoviesById(movie.imdbID)))).then(_ => {
+        setMoviesResultSearch(movies);
+        setSearching(false);
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +43,7 @@ export const SearchForm = ({
     <form className="form" onSubmit={handleSubmit}>
       <input
         type="text"
+        id="inputSearch"
         onChange={handleChange}
         placeholder="pesquise filmes aqui"
       />
